@@ -1,0 +1,9 @@
+[package]
+name = "claxon-afl"
+version = "0.1.0"
+authors = ["Sergey \"Shnatsel\" Davidoff <shnatsel@gmail.com>"]
+
+[dependencies]
+afl = "0.4"
+claxon = "0.4"
+itertools = "0.7.8"
