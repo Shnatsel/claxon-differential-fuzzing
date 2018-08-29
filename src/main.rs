@@ -30,7 +30,8 @@ fn main() {
         let cursor2 = Cursor::new(data);
         let mut reader2 = match claxon::FlacReader::new(cursor2) {
             Ok(r) => r,
-            Err(..) => return,
+            // if decoding succeeded the first time, it should succeed always
+            Err(..) => unreachable!(),
         };
 
         // Check that tags have been decoded identically
