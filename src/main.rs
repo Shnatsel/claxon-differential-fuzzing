@@ -6,13 +6,6 @@ extern crate itertools;
 use std::io::Cursor;
 use itertools::Itertools;
 
-// Suppress false positives on Address Sanitizer
-const ASAN_DEFAULT_OPTIONS: &'static [u8] = b"detect_odr_violation=1\0";
-#[no_mangle]
-pub extern "C" fn __asan_default_options() -> *const u8 {
-    ASAN_DEFAULT_OPTIONS as *const [u8] as *const u8
-}
-
 // Use system allocator so we can substitute it with a custom one via LD_PRELOAD
 use std::alloc::System;
 #[global_allocator]
